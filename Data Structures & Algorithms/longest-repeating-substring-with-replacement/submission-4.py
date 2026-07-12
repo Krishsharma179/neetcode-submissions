@@ -1,0 +1,31 @@
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        l=0
+        frequency={} 
+        res=0
+        freq=0
+        
+        for r in range(len(s)):
+            if s[r] in frequency:
+                frequency[s[r]]+=1
+            else:
+                frequency[s[r]]=1
+            freq = max(frequency.values())
+            while (r-l+1)-freq>k:
+                frequency[s[l]]-=1  
+                l += 1
+            
+            res = max(res, r - l + 1)
+           
+
+        return res       
+        
+            
+                  
+        
+            
+
+
+
+
+        
